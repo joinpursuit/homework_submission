@@ -1,0 +1,41 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <h1>Enter Github assignment: </h1>
+    <form class="" action="index.html" method="GET">
+      <input type="text" name="" value=""/>
+    </form>
+    <ul>
+
+    </ul>
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript">
+    $("form").on("submit", (e) => {
+      e.preventDefault()
+      let assignment = $("input")[0].value
+      let lookup = "https://api.github.com/users/" + assignment + "/repos"
+      $.ajax({
+        method: "GET",
+        url: lookup,
+      })
+      .then(res => res.map(obj => $("ul").append(`<li>${obj.name}</li>`)))
+    })
+    </script>
+  </body>
+</html>
+
+fetch("https://api.github.com/repos/joinpursuit/git_assignment/pulls?page=2")
+  .then(res => {
+    return res.json();
+  })
+  .then(res => console.log(res));
+fetch("https://api.github.com/repos/joinpursuit/git_assignment/pulls?page=1")
+  .then(res => {
+    return res.json();
+  })
+  .then(res => console.log(res));
