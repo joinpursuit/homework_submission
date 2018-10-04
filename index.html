@@ -80,8 +80,12 @@
           }
         })
       });
+
+      let ul = document.querySelector("ul")
       Object.keys(classList).map( student => {
-        console.log(student)
+        let li = document.createElement("li");
+        li.appendChild(document.createTextNode(student));
+        ul.appendChild(li);
       })
     })
     </script>
