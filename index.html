@@ -16,40 +16,43 @@
     <script type="text/javascript">
 
     let classList = {
-      "isa alvarado": false,
-      "jonathan andrade": false,
-      "dawn annichiarico": false,
-      "christion anselm": false,
-      "erick arellano": false,
-      "jonelle bain": false,
-      "jonathan bayne": false,
-      "treagan birbal": false,
-      "andres cabrera": false,
-      "jonathan erquinigo": false,
-      "evgeniya ezhova": false,
-      "abid hussain": false,
-      "jung rae jang": false,
-      "morteza khaki": false,
-      "andrew kil": false,
-      "kelly liang": false,
-      "nicolle loayza": false,
-      "huandan lu": false,
-      'jean max mezalon': false,
-      'crispina muriel': false,
-      'mateo navarrete': false,
-      'jacky ong': false,
-      'devyi ortiz': false,
-      'tyson pan': false,
-      'alex park': false,
-      'thomas perez': false,
-      'wynter reid': false,
-      'muna sharma': false,
-      "t'keya stevens": false,
-      'carina taveras': false,
-      'michell tejada': false,
-      'nielene thomas': false,
-      'rinat tregerman': false,
-      'channing tyner': false
+      "isa alvarado": true,
+      "jonathan andrade": true,
+      "dawn annichiarico": true,
+      "christion anselm": true,
+      "erick arellano": true,
+      "jonelle bain": true,
+      "jonathan bayne": true,
+      "treagan birbal": true,
+      "andres cabrera": true,
+      "jonathan erquinigo": true,
+      "evgeniya ezhova": true,
+      "abid hussain": true,
+      "jung rae jang": true,
+      "morteza khaki": true,
+      "andrew kil": true,
+      "kelly liang": true,
+      "nicolle loayza": true,
+      "huandan lu": true,
+      'jean max mezalon': true,
+      'crispina muriel': true,
+      'mateo navarrete': true,
+      'jacky ong': true,
+      'devyi ortiz': true,
+      'tyson pan': true,
+      'alex park': true,
+      'thomas perez': true,
+      'wynter reid': true,
+      'muna sharma': true,
+      "t'keya stevens": true,
+      'carina taveras': true,
+      'michell tejada': true,
+      'nielene thomas': true,
+      'rinat tregerman': true,
+      'channing tyner': true,
+      'elisandra cardona': true,
+      'diana gaona': true,
+
 
     }
 
@@ -71,11 +74,15 @@
       ])
       .then(res => {
         let output = res[0].concat(res[1])
-        output.map(obj => {
-          console.log(obj.title)
+        output.forEach(obj => {
+          if(classList[obj.title.toLowerCase()]) {
+            delete classList[obj.title.toLowerCase()]
+          }
         })
       });
-
+      Object.keys(classList).map( student => {
+        console.log(student)
+      })
     })
     </script>
   </body>
