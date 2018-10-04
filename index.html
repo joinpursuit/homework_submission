@@ -13,29 +13,78 @@
     <ul>
 
     </ul>
-     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script type="text/javascript">
-    $("form").on("submit", (e) => {
+
+    let classList = {
+      "isa alvarado": false,
+      "jonathan andrade": false,
+      "dawn annichiarico": false,
+      "christion anselm": false,
+      "erick arellano": false,
+      "jonelle bain": false,
+      "jonathan bayne": false,
+      "treagan birbal": false,
+      "andres cabrera": false,
+      "jonathan erquinigo": false,
+      "evgeniya ezhova": false,
+      "abid hussain": false,
+      "jung rae jang": false,
+      "morteza khaki": false,
+      "andrew kil": false,
+      "kelly liang": false,
+      "nicolle loayza": false,
+      "huandan lu": false,
+      'jean max mezalon': false,
+      'crispina muriel': false,
+      'mateo navarrete': false,
+      'jacky ong': false,
+      'devyi ortiz': false,
+      'tyson pan': false,
+      'alex park': false,
+      'thomas perez': false,
+      'wynter reid': false,
+      'muna sharma': false,
+      "t'keya stevens": false,
+      'carina taveras': false,
+      'michell tejada': false,
+      'nielene thomas': false,
+      'rinat tregerman': false,
+      'channing tyner': false
+
+    }
+
+    document.querySelector("form").addEventListener("submit", (e) => {
       e.preventDefault()
-      let assignment = $("input")[0].value
-      let lookup = "https://api.github.com/users/" + assignment + "/repos"
-      $.ajax({
-        method: "GET",
-        url: lookup,
-      })
-      .then(res => res.map(obj => $("ul").append(`<li>${obj.name}</li>`)))
+      let assignment = document.querySelector("input").value
+      let lookup = "https://api.github.com/repos/joinpursuit/" + assignment + "/pulls?page=2"
+      let lookup2 = "https://api.github.com/repos/joinpursuit/" + assignment + "/pulls?page=1"
+      Promise.all([
+        fetch(lookup)
+        .then(res => {
+          return res.json();
+        }),
+        fetch(lookup2)
+        .then(res => {
+          return res.json();
+        })
+
+      ])
+      .then(res => {
+        let output = res[0].concat(res[1])
+        output.map(obj => {
+          console.log(obj.title)
+        })
+      });
+
     })
     </script>
   </body>
 </html>
 
-fetch("https://api.github.com/repos/joinpursuit/git_assignment/pulls?page=2")
+<!-- fetch("https://api.github.com/repos/joinpursuit/git_assignment/pulls?page=1")
   .then(res => {
     return res.json();
   })
   .then(res => console.log(res));
-fetch("https://api.github.com/repos/joinpursuit/git_assignment/pulls?page=1")
-  .then(res => {
-    return res.json();
-  })
-  .then(res => console.log(res));
+
+res.map(obj => $("ul").append(`<li>${obj.name}</li>`))) -->
