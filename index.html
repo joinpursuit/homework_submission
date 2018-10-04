@@ -79,14 +79,21 @@
             delete classList[obj.title.toLowerCase()]
           }
         })
-      });
+      }).then(
 
-      let ul = document.querySelector("ul")
-      Object.keys(classList).map( student => {
-        let li = document.createElement("li");
-        li.appendChild(document.createTextNode(student));
-        ul.appendChild(li);
-      })
+        () => {
+          debugger
+
+          let ul = document.querySelector("ul")
+          Object.keys(classList).map( student => {
+            let li = document.createElement("li");
+            li.appendChild(document.createTextNode(student));
+            ul.appendChild(li);
+          })
+
+        }
+      )
+
     })
     </script>
   </body>
