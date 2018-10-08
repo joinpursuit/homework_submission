@@ -2,7 +2,7 @@ let classList = {
   "isa alvarado": true,
   "jonathan andrade": true,
   "dawn annichiarico": true,
-  "christion anselm": true,
+  "christian anselm": true,
   "erick arellano": true,
   "jonelle bain": true,
   "jonathan bayne": true,
@@ -55,8 +55,9 @@ document.querySelector("form").addEventListener("submit", e => {
     .then(res => {
       let output = res[0].concat(res[1]);
       output.forEach(obj => {
-        if (classList[obj.title.toLowerCase()]) {
-          delete classList[obj.title.toLowerCase()];
+        //console.log(classList[obj.title.toLowerCase()], obj.title.toLowerCase(), obj.title.toLowerCase().trim());
+        if (classList[obj.title.toLowerCase().trim()]) {
+          delete classList[obj.title.toLowerCase().trim()];
         }
       });
     })
