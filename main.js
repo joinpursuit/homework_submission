@@ -21,7 +21,7 @@ let classList = {
   "crispina muriel": true,
   "mateo navarrete": true,
   "jacky ong": true,
-  "devyi ortiz": true,
+  "deyvi ortiz": true,
   "tyson pan": true,
   "alex park": true,
   "thomas perez": true,
